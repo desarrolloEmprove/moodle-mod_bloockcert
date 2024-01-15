@@ -1,0 +1,8 @@
+{
+    "moodle-mod_bloockcert-rearrange": {
+        "requires": [
+            "dd-delegate",
+            "dd-drag"
+        ]
+    }
+}

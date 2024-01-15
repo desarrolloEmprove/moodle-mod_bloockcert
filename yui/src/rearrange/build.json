@@ -1,0 +1,10 @@
+{
+  "name": "moodle-mod_bloockcert-rearrange",
+  "builds": {
+    "moodle-mod_bloockcert-rearrange": {
+      "jsfiles": [
+        "rearrange.js"
+      ]
+    }
+  }
+}
