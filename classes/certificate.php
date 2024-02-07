@@ -434,7 +434,7 @@ class certificate {
      * @param int $recordid The ID of the record
      * @return int The ID of the issue.
      */
-    public static function issue_certificate($certificateid, $userid, $recordid = null) {
+    public static function issue_certificate($certificateid, $userid, $recordid = null, $urlcert = null) {
         global $DB;
 
         $issue = new \stdClass();
@@ -444,6 +444,11 @@ class certificate {
             $issue->recordid = $recordid;
         } else {
             $issue->recordid = null;
+        }
+        if ($urlcert !== null) {
+            $issue->urlcert = $urlcert;
+        } else {
+            $issue->urlcert = null;
         }
         $issue->code = self::generate_code();
         $issue->emailed = 0;

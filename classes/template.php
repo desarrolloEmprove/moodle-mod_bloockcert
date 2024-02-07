@@ -518,6 +518,7 @@ class template {
         global $DB;
 
         $urlclient = get_config('bloockcert', 'urlclient');
+        $certificateclient = get_config('bloockcert', 'certificateclient');
 
         $curl = curl_init();
 
@@ -530,7 +531,7 @@ class template {
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => array('file' => new \CURLFile($filename), 'integrity.enabled' => 'true', 'availability.type' => 'IPFS'),
+            CURLOPT_POSTFIELDS => array('file' => new \CURLFile($filename), 'integrity.enabled' => 'true', 'availability.enabled' => 'true', 'availability.type' => 'IPFS', 'authenticity.enabled' => 'true','authenticity.key' => $certificateclient,'authenticity.keySource' => 'MANAGED_CERTIFICATE'),
         ));
 
         $response = curl_exec($curl);
@@ -545,6 +546,7 @@ class template {
         $certificate = $DB->get_record('bloockcert_issues', ['userid' => $userid, 'bloockcertid' => $certificateid], '*', MUST_EXIST);
 
         $certificate->recordid = $id;
+        $certificate->urlcert = $url;
 
         $DB->update_record('bloockcert_issues', $certificate);
 

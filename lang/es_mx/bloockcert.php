@@ -35,6 +35,7 @@ $string['awardedto'] = 'Adjudicado a';
 $string['cannotverifyallcertificates'] = 'No tiene permiso para verificar todos los certificados en el sitio.';
 $string['certificate'] = 'Certificado';
 $string['code'] = 'Código';
+$string['url_certificate'] = 'URL del certificado';
 $string['copy'] = 'Copiar';
 $string['coursetimereq'] = 'Minutos requeridos en el curso';
 $string['coursetimereq_help'] = 'Ingrese aquí la cantidad mínima de tiempo, en minutos, que un estudiante debe iniciar sesión en el curso antes de poder recibir
@@ -55,6 +56,8 @@ $string['bloockcert:viewallcertificates'] = 'Ver todos los certificados';
 $string['bloockcert:verifyallcertificates'] = 'Verificar todos los certificados en el sitio';
 $string['bloockcert:verifycertificate'] = 'Verificar un certificado';
 $string['bloockcertsettings'] = 'Configuraciones de Certificados Bloock';
+$string['certificateclient'] = 'Certificado de cliente';
+$string['certificatelient_help'] = 'Código de certificado del cliente';
 $string['deletecertpage'] = 'Eliminar página';
 $string['deleteconfirm'] = 'Eliminar confirmación';
 $string['deleteelement'] = 'Eliminar elemento';
@@ -215,7 +218,7 @@ $string['verifyallcertificates_desc'] = 'Cuando esta configuración está habili
 
 Nota: esto solo se aplica a los certificados en los que \'Permitir que cualquiera verifique un certificado\' se ha configurado en \'Sí\' en la configuración del certificado.';
 $string['verifycertificate'] = 'Verificar certificado';
-$string['verifycertificatedesc'] = 'Este enlace lo llevará a una nueva pantalla donde podrá verificar los certificados en el sitio.';
+$string['verifycertificatedesc'] = 'Esta URL es el sitio a donde se valida la autenticidad del certificado. Nota: Asegurarse de que la URL tenga "/" al final.';
 $string['verifycertificateanyone'] = 'Permitir que cualquiera verifique un certificado';
 $string['verifycertificateanyone_help'] = 'Esta configuración permite que cualquier persona con el enlace de verificación del certificado (incluidos los usuarios que no hayan iniciado sesión) verifique un certificado.';
 $string['width'] = 'Ancho';

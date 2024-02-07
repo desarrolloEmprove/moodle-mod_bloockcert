@@ -37,18 +37,50 @@ require_once($CFG->libdir . '/formslib.php');
  * @copyright  2017 based on work by Mark Nelson <markn@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class verify_certificate_form extends \moodleform {
+class verify_certificate_form extends \moodleform
+{
 
     /**
      * Form definition.
      */
-    public function definition() {
-        $mform =& $this->_form;
+    public function definition()
+    {
+        $mform = &$this->_form;
+        global $USER, $DB;
 
-        $mform->addElement('text', 'code', get_string('code', 'bloockcert'));
-        $mform->setType('code', PARAM_ALPHANUM);
+        $contextid = optional_param('contextid', \context_system::instance()->id, PARAM_INT);
 
-        $mform->addElement('submit', 'verify', get_string('verify', 'bloockcert'));
+        // template.
+        $sql = 'SELECT id FROM {bloockcert_templates} WHERE contextid = :contextid';
+        $params = ['contextid' => $contextid,];
+
+        $template = $DB->get_field_sql($sql, $params);
+
+        // cert.
+        $userid = $USER->id;
+        $bloockcertid = $template;
+
+        $sql = 'SELECT urlcert FROM {bloockcert_issues} WHERE userid = :userid AND bloockcertid = :bloockcertid';
+        $params = ['userid' => $userid, 'bloockcertid' => $bloockcertid];
+
+        $urlcert = $DB->get_field_sql($sql, $params);
+
+        $configvalue = get_config('bloockcert', 'verifycertificate');
+
+        $mform->addElement('text', 'url_certificate', get_string('url_certificate', 'bloockcert'));
+        $mform->setDefault('url_certificate', $urlcert);
+        $mform->setType('url_certificate', PARAM_ALPHANUM);
+
+        $mform->addElement('submit', 'verify', get_string('verify', 'bloockcert'), array('onclick' => 'openNewTab();'));
+
+
+        $mform->addElement('html', '<script>
+            function openNewTab() {
+                var url = "' . $configvalue . '/?url=' . $urlcert . '";
+                window.open(url, "_blank");
+                return false;
+            }
+        </script>');
     }
 
     /**
@@ -58,7 +90,8 @@ class verify_certificate_form extends \moodleform {
      * @param array $files
      * @return array the errors that were found
      */
-    public function validation($data, $files) {
+    public function validation($data, $files)
+    {
         $errors = array();
 
         if ($data['code'] === '') {

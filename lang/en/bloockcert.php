@@ -35,6 +35,7 @@ $string['awardedto'] = 'Awarded to';
 $string['cannotverifyallcertificates'] = 'You do not have the permission to verify all certificates on the site.';
 $string['certificate'] = 'Certificate';
 $string['code'] = 'Code';
+$string['url_certificate'] = 'URL Certificate';
 $string['copy'] = 'Copy';
 $string['coursetimereq'] = 'Required minutes in course';
 $string['coursetimereq_help'] = 'Enter here the minimum amount of time, in minutes, that a student must be logged into the course before they will be able to receive
@@ -55,6 +56,8 @@ $string['bloockcert:viewallcertificates'] = 'View all certificates';
 $string['bloockcert:verifyallcertificates'] = 'Verify all certificates on the site';
 $string['bloockcert:verifycertificate'] = 'Verify a certificate';
 $string['bloockcertsettings'] = 'Bloock certificate settings';
+$string['certificateclient'] = 'Certificate client';
+$string['certificatelient_help'] = 'Certificate client';
 $string['deletecertpage'] = 'Delete page';
 $string['deleteconfirm'] = 'Delete confirmation';
 $string['deleteelement'] = 'Delete element';
@@ -215,7 +218,7 @@ $string['verifyallcertificates_desc'] = 'When this setting is enabled any person
 
 Note - this only applies to certificates where \'Allow anyone to verify a certificate\' has been set to \'Yes\' in the certificate settings.';
 $string['verifycertificate'] = 'Verify certificate';
-$string['verifycertificatedesc'] = 'This link will take you to a new screen where you will be able to verify certificates on the site';
+$string['verifycertificatedesc'] = 'This URL is the site where the authenticity of the certificate is validated. Note: Make sure the URL has "/" at the end.';
 $string['verifycertificateanyone'] = 'Allow anyone to verify a certificate';
 $string['verifycertificateanyone_help'] = 'This setting enables anyone with the certificate verification link (including users not logged in) to verify a certificate.';
 $string['width'] = 'Width';

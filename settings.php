@@ -37,6 +37,12 @@ $settings->add(new \mod_bloockcert\admin_setting_link('bloockcert/verifyurl',
     get_string('verifyurl', 'bloockcert'), get_string('verifyurldesc', 'bloockcert'),
     get_string('verifyurl', 'bloockcert'), new moodle_url('/mod/bloockcert/verify_url.php'), ''));
 
+$settings->add(new admin_setting_configtext('bloockcert/verifycertificate',
+    get_string('verifycertificate', 'bloockcert'), get_string('verifycertificatedesc', 'bloockcert'), 'https://validproof.info/', PARAM_TEXT));
+
+$settings->add(new admin_setting_configtext('bloockcert/certificateclient',
+        get_string('certificateclient', 'bloockcert'), get_string('certificatelient_help', 'bloockcert'), '', PARAM_TEXT));
+
 $settings->add(new admin_setting_configcheckbox('bloockcert/verifyallcertificates',
     get_string('verifyallcertificates', 'bloockcert'),
     get_string('verifyallcertificates_desc', 'bloockcert', $url),
@@ -46,10 +52,6 @@ $settings->add(new admin_setting_configcheckbox('bloockcert/showposxy',
     get_string('showposxy', 'bloockcert'),
     get_string('showposxy_desc', 'bloockcert'),
     0));
-
-$settings->add(new \mod_bloockcert\admin_setting_link('bloockcert/verifycertificate',
-    get_string('verifycertificate', 'bloockcert'), get_string('verifycertificatedesc', 'bloockcert'),
-    get_string('verifycertificate', 'bloockcert'), new moodle_url('/mod/bloockcert/verify_certificate.php'), ''));
 
 $settings->add(new \mod_bloockcert\admin_setting_link('bloockcert/managetemplates',
     get_string('managetemplates', 'bloockcert'), get_string('managetemplatesdesc', 'bloockcert'),

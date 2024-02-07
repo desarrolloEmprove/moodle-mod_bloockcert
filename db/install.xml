@@ -47,6 +47,7 @@
         <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
         <FIELD NAME="bloockcertid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
         <FIELD NAME="recordid" TYPE="char" LENGTH="80" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="urlcert" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false"/>
         <FIELD NAME="code" TYPE="char" LENGTH="40" NOTNULL="false" SEQUENCE="false"/>
         <FIELD NAME="emailed" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
         <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
